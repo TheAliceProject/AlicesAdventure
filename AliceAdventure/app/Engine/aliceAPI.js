@@ -184,7 +184,10 @@ class AlicePuzzleSystem {
   showWinningState(sceneIndex) {
     setTimeout(() => {
       this.game.soundManager.play('win');
-      const win = new Alice.Object.fromImage(`${baseURL.requireAssets}win.png`);
+      const win = new Alice.Object.fromImage(
+        `${baseURL.requireAssets}win.png`,
+        false
+      );
       win.name = 'Win';
       win.anchor.set(0.5, 0.5);
       win.x = 512;
@@ -1053,7 +1056,10 @@ class Inventory {
     this.inventoryBackgroundGrp = new PIXI.Container();
     const backgroundScale = this.inventory_w / 144;
 
-    this.inventUp = Alice.Object.fromImage(`${baseURL.requireAssets}up.png`);
+    this.inventUp = Alice.Object.fromImage(
+      `${baseURL.requireAssets}up.png`,
+      false
+    );
     this.inventUp.scale.set(backgroundScale);
     this.inventUp.x = game.screenWidth;
     this.inventUp.y = 0;
@@ -1066,7 +1072,8 @@ class Inventory {
 
     for (let i = 0; i < this.inventory_size; i += 1) {
       const inventBack = Alice.Object.fromImage(
-        `${baseURL.requireAssets}inventory.png`
+        `${baseURL.requireAssets}inventory.png`,
+        false
       );
       inventBack.scale.set(backgroundScale);
       inventBack.x = game.screenWidth;
@@ -1075,7 +1082,8 @@ class Inventory {
     }
 
     this.inventDown = Alice.Object.fromImage(
-      `${baseURL.requireAssets}down.png`
+      `${baseURL.requireAssets}down.png`,
+      false
     );
     this.inventDown.scale.set(backgroundScale);
     this.inventDown.x = game.screenWidth;
@@ -1186,6 +1194,7 @@ class Inventory {
 class SoundManager {
   constructor() {
     this.sound = PIXI.sound;
+    this.sound.useLegacy = true;
     this.baseURL = './Resources/Assets/require/sound/';
     this.initSystemSound();
   }
@@ -1308,7 +1317,7 @@ class Menu {
   // name: name of the menu option. must be unique.
   // imageLoc: image directory of this menu option.
   createActionPanel(name, imageLoc) {
-    const action = new PIXI.Sprite.fromImage(imageLoc);
+    const action = new PIXI.Sprite.fromImage(imageLoc, false);
     action.anchor.x = 0.5;
     action.anchor.y = 0.5;
     action.interactive = true;
@@ -1641,7 +1650,7 @@ class MessageBox {
     this.game = game;
 
     // the original background asset is built for 1280*720 screen
-    this.backgronud = Alice.Object.fromImage(background.url);
+    this.backgronud = Alice.Object.fromImage(background.url, false);
     this.backgronud.anchor.set(0.5);
 
     // horizontal center

@@ -123,7 +123,9 @@ function createSoundList(callback) {
         let dest = FileSys.merge(this.assetPath, FileSys.filename(sound.src));
         dest = dest.replace(/\\/g, '/');
         FileSys.copyFileOrFolder(src, dest);
-        console.log(`sound source: ${path.resolve(__dirname, '../', sound.src)}`);
+        console.log(
+          `sound source: ${path.resolve(__dirname, '../', sound.src)}`
+        );
 
         toReturn += addSound(
           sound.name,
@@ -202,7 +204,7 @@ function goToScene(objName, sceneIndex) {
 }
 
 function createPIXIObject(obj, src) {
-  return `var ${obj}= Alice.Object.fromImage('${src}');\n`;
+  return `var ${obj}= Alice.Object.fromImage('${src}', false);\n`;
 }
 
 function setName(obj, nameID) {
