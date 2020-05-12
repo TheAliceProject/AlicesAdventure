@@ -148,7 +148,7 @@ canvas {
   /* grid-template-columns: [col] 256px [col] 120px [col] auto [col] 200px [col] 400px;
   grid-template-rows: [row] 0px [row] 60px [row] 600px [row] auto; */
   /* Layout for auto fit the window*/
-  grid-template-columns: [col] 13.33% [col] 0px [col] 66.67% [col] 0px [col] 20%;
+  grid-template-columns: [col] 256px [col] 0px [col] 10fr [col] 0px [col] 4fr;
   grid-template-rows: [row] 0px [row] 60px [row] 58.77vh [row] auto;
 
   width: 100vw;
@@ -759,6 +759,7 @@ select > option {
 
 #builder-card {
   width: auto;
+  max-width: 350px;
   /* max-height: 600px; */
   border-color: black;
   border-width: 1px;
@@ -907,7 +908,7 @@ select > option {
 
 .add-scene {
   margin-top: 24px;
-  margin-left: 16%;
+  margin-left: 61px;
 }
 #add-interaction-button {
   display: inline-block;
@@ -1542,13 +1543,13 @@ ul {
   position: relative;
   overflow: auto;
   height: 844px;
-  margin: 24px 24px 0 30px;
+  margin: 24px 24px 0 48px;
   padding: 0px;
   overflow-y: auto;
 }
 
 .object-tree ol {
-  padding-left: 12px;
+  padding-left: 36px;
 }
 
 .object-tree li {
@@ -2068,7 +2069,7 @@ ul {
 
 #help-menu {
   display: inline-block;
-  width: 200px;
+  width: 20%;
   height: 100%;
   float: left;
 }
@@ -2076,7 +2077,7 @@ ul {
 #help-content {
   overflow: auto;
   display: inline-block;
-  width: 1360px;
+  width: 80%;
   height: 100%;
   padding: 8px 32px;
   background-color: #eee;
